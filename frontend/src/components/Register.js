@@ -37,7 +37,8 @@ const Register = ({ onClose }) => {
             const { user } = response.data; // Assuming your backend returns the user object
             localStorage.setItem('user', JSON.stringify(user));
 
-            setFormData({ username: '', email: '', password: '' }); // Clear form data
+            // Clear form data
+            setFormData({ username: '', email: '', password: '' });
 
             // Navigate to map page after successful registration
             setTimeout(() => {
@@ -63,7 +64,8 @@ const Register = ({ onClose }) => {
     };
 
     const handleClose = () => {
-        navigate('/'); // Navigate to map page when closing
+        navigate('/map'); // Navigate to map page
+        if (onClose) onClose(); // Close the modal
     };
 
     return (
