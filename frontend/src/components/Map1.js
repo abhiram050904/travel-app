@@ -22,7 +22,7 @@ const Map1 = () => {
     const [newPlaceData, setNewPlaceData] = useState({ title: '', desc: '', rating: 1 });
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
         const user = localStorage.getItem('user');
@@ -131,6 +131,10 @@ const Map1 = () => {
         navigate('/login');
     };
 
+    const handleRegisterClick = () => {
+        navigate('/register'); // Navigate to register page
+    };
+
     const handleLogout = () => {
         localStorage.removeItem('user');
         setCurrentUser(null);
@@ -217,7 +221,7 @@ const Map1 = () => {
                 ) : (
                     <div className="buttons">
                         <button className="button login" onClick={handleLoginClick}>Login</button>
-                        <button className="button register">Register</button>
+                        <button className="button register" onClick={handleRegisterClick}>Register</button>
                     </div>
                 )}
             </ButtonContainer>
